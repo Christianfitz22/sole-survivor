@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 3;
+    public float sprintSpeed = 5;
     public float jumpHeight = 3f;
     public float gravity = 9.81f;
     public float airControl = 1f;
@@ -13,21 +14,32 @@ public class PlayerController : MonoBehaviour
 
     Vector3 input, moveDirection;
 
+    private float currentSpeed;
+
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        currentSpeed = moveSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            currentSpeed = sprintSpeed;
+        } else
+        {
+            currentSpeed = moveSpeed;
+        }
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
         input = transform.right * moveHorizontal + transform.forward * moveVertical;
-        input = input.normalized * moveSpeed;
+        input = input.normalized * currentSpeed;
 
         if (controller.isGrounded) {
             moveDirection = input;
