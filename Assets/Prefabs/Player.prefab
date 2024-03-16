@@ -302,7 +302,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 5833665017592657043}
   - component: {fileID: 2693237842500734820}
   - component: {fileID: 1968418299632655062}
+  - component: {fileID: 5070039039892730521}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -434,9 +435,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   sprintSpeed: 10
+  depleteSpeed: 4
   jumpHeight: 1
   gravity: 20
-  airControl: 1
+  airControl: 10
+  sprintDuration: 5
+  sprintRecoveryRate: 1
+  depleteRecoveryRate: 1
+  sprintContent: {fileID: 0}
 --- !u!114 &1968418299632655062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,6 +464,21 @@ MonoBehaviour:
   maxClipSize: 6
   startingBullets: 36
   startingLoadedBullets: 6
+--- !u!114 &5070039039892730521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5767836686722002879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d19cf77345f491fa0db4176e835369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  healthContent: {fileID: 0}
+  screenGradient: {fileID: 0}
 --- !u!1 &6147116234680085007
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +580,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -742,7 +763,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ammo
   - Enemy
+  - HPContent
+  - StaminaContent
+  - ScreenGradient
   layers:
   - Default
   - TransparentFX
