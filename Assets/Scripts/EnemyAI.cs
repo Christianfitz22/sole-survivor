@@ -15,6 +15,8 @@ public class EnemyAI : MonoBehaviour
 
     public FSMStates currentState;
 
+    private PlayerHealth playerHealth;
+
     public float attackDistance = 5;
     public float chaseDistance = 10;
     public float enemySpeed = 5;
@@ -22,16 +24,19 @@ public class EnemyAI : MonoBehaviour
     public GameObject[] wanderPoints;
     Vector3 nextDestination;
     Animator anim;
+    public int attackDamage;
+    public float attackRate;
     float distnaceToPlayer;
     public float idleTime = 2.5f;
     int currentDestinationIndex = 0;
-    Transform deadTransform;
+    private float attackTimer;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
+        playerHealth = player.GetComponent<PlayerHealth>();
         anim = GetComponent<Animator>();
+        attackTimer = attackRate;
 
         Initialize();
     }
@@ -60,7 +65,6 @@ public class EnemyAI : MonoBehaviour
                 UpdateDeadState();
                 break;
         }
-
     }
 
     void UpdateIdleState()
@@ -114,6 +118,7 @@ public class EnemyAI : MonoBehaviour
         anim.SetInteger("animState", 2);
 
         nextDestination = player.transform.position;
+        attackTimer = attackRate;
 
         if (distnaceToPlayer <= attackDistance)
         {
@@ -146,6 +151,13 @@ public class EnemyAI : MonoBehaviour
             currentState = FSMStates.Patrol;
         }
 
+        attackTimer += Time.deltaTime;
+        if (attackTimer >= attackRate)
+        {
+            attackTimer = 0f;
+            playerHealth.TakeDamage(attackDamage);
+        }
+
         FaceTarget(nextDestination);
 
         anim.SetInteger("animState", 3);
@@ -154,8 +166,6 @@ public class EnemyAI : MonoBehaviour
     {
         print("dead");
         anim.SetInteger("animState", 4);
-        deadTransform = gameObject.transform;
-
         Destroy(gameObject, 3);
     }
 

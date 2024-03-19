@@ -24710,6 +24710,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1661815615}
     - target: {fileID: -689191319185587394, guid: 3b61cebb5e16e6644af5f09f906f4220, type: 3}
+      propertyPath: attackDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -689191319185587394, guid: 3b61cebb5e16e6644af5f09f906f4220, type: 3}
       propertyPath: wanderPoints.Array.size
       value: 2
       objectReference: {fileID: 0}

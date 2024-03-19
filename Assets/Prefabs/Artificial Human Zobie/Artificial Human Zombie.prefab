@@ -1234,7 +1234,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.75, z: 0.5}
+  m_Size: {x: 1, y: 1.75, z: 1}
   m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &-689191319185587394
 MonoBehaviour:
@@ -1254,6 +1254,8 @@ MonoBehaviour:
   enemySpeed: 5
   player: {fileID: 0}
   wanderPoints: []
+  attackDamage: 10
+  attackRate: 1
   idleTime: 2
 --- !u!114 &199179330588088147
 MonoBehaviour:
