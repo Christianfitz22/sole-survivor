@@ -1169,9 +1169,10 @@ GameObject:
   - component: {fileID: 1462442532476153632}
   - component: {fileID: 4006359461198549253}
   - component: {fileID: -689191319185587394}
+  - component: {fileID: 199179330588088147}
   m_Layer: 0
   m_Name: Artificial Human Zombie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1233,7 +1234,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.75, z: 0.4}
+  m_Size: {x: 1, y: 1.75, z: 0.5}
   m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &-689191319185587394
 MonoBehaviour:
@@ -1247,9 +1248,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef5ccad0a3dda2e43910c89577e91163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
+  currentState: 1
   attackDistance: 1
-  chaseDistance: 10
+  chaseDistance: 5
+  enemySpeed: 5
+  player: {fileID: 0}
+  wanderPoints: []
+  idleTime: 2
+--- !u!114 &199179330588088147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5323360055966592992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc8fa71555814902bd3bc54a593d5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitpoints: 0
+  hitSFX: {fileID: 0}
+  deathSFX: {fileID: 0}
 --- !u!1 &5342455021735087291
 GameObject:
   m_ObjectHideFlags: 0

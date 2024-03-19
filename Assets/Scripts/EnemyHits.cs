@@ -17,8 +17,7 @@ public class EnemyHits : MonoBehaviour
             if (hitpoints <= 0)
             {
                 AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position);
-                Destroy(gameObject, 0.5f);
-                gameObject.SetActive(false);
+                GetComponent<EnemyAI>().currentState = EnemyAI.FSMStates.Dead;
             } else
             {
                 AudioSource.PlayClipAtPoint(hitSFX, Camera.main.transform.position);
