@@ -1187,7 +1187,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1768603428331769209}
@@ -1249,7 +1249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 1
-  attackDistance: 1
+  attackDistance: 2.5
   chaseDistance: 5
   enemySpeed: 5
   player: {fileID: 0}
@@ -1269,9 +1269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc8fa71555814902bd3bc54a593d5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitpoints: 0
-  hitSFX: {fileID: 0}
-  deathSFX: {fileID: 0}
+  hitpoints: 2
+  hitSFX: {fileID: 8300000, guid: 36b15e1fd319a41f7899482253bece54, type: 3}
+  deathSFX: {fileID: 8300000, guid: c93bae99b632e423bb0ddf28ae387819, type: 3}
 --- !u!1 &5342455021735087291
 GameObject:
   m_ObjectHideFlags: 0
